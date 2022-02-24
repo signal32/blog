@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://blog.hamishweir.uk"
-theme = "hook"
+theme = "zola-hook"
 title="Hamish Weir: Blog"
 
 # Whether to automatically compile all Sass files in the sass directory
