@@ -1,6 +1,6 @@
 # The URL the site will be built for
 base_url = "https://blog.hamishweir.uk"
-theme = "hook"
+theme = "hame"
 title="Hamish Weir: Blog"
 
 # Whether to automatically compile all Sass files in the sass directory
@@ -16,7 +16,14 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+
+nav = [
+    {title = "Home", href = "/"},
+    {title = "Showcase", href = "/showcase/"},
+    {title = "Contact", href = "/contact/"}
+]
+
 links = [
-    { title = "GitHub", href = "http://example.com" },
-    # ...
+    {title = "Github", href = "github.com", icon = "github"},
+    {title = "Instagram", href = "github.com", icon = "instagram"}
 ]

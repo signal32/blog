@@ -1,3 +1,6 @@
 [submodule "themes/zola-hook"]
 	path = themes/zola-hook
 	url = https://github.com/signal32/zola-hook.git
+[submodule "themes/hame"]
+	path = themes/hame
+	url = https://github.com/signal32/hame.git
