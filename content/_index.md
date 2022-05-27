@@ -2,7 +2,7 @@
 title = "Home"
 path = "/"
 [extra]
-background_image = "http://rails.hamishweir.uk/wp-content/uploads/2020/12/20201219214508_1-2048x1152.jpg"
+background_image = "/images/misc/background.jpg"
 +++
 
 <div class="flex flex-wrap gap-10">
