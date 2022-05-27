@@ -6,6 +6,8 @@ title="Hamish Weir: Blog"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
+ignored_content = ["./themes/hame/static/styles/style.css"]
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
@@ -27,3 +29,6 @@ links = [
     {title = "Github", href = "github.com", icon = "github"},
     {title = "Instagram", href = "github.com", icon = "instagram"}
 ]
+
+logo = {dark = "", light = ""}
+posts_per_page = 10
