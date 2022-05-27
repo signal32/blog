@@ -1,9 +1,11 @@
 +++
 title = "Let's Meet: a collaborative meeting scheduler"
 date = 2022-03-17
-draft = true
+draft = false
 [extra]
 image = "/images/posts/letsmeet_logo.svg"
+background_image = "/images/posts/letsmeet_logo.svg"
+
 +++
 
 Last year I spent a significant amount of time developing Let's Meet, a self proclaimed "collaborative meeting organiser" as part of a university assessment. 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1024 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="dark" transform="matrix(1,0,0,0.695652,0,0)">
+        <rect x="0" y="0" width="1024" height="368" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="0" y="0" width="1024" height="368"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(0.280791,0,0,0.403637,-38.7491,-48.5549)">
+                <text x="76px" y="585px" style="font-family:'BalooTammudu2-Regular', 'Baloo Tammudu 2';font-size:696.627px;fill:white;">Hamish W<tspan x="3002.53px " y="585px ">e</tspan>ir</text>
+            </g>
+            <g transform="matrix(0.185254,0,0,0.266302,-25.565,174.74)">
+                <text x="76px" y="585px" style="font-family:'BalooTammudu2-Regular', 'Baloo Tammudu 2';font-size:696.627px;fill:white;fill-opacity:0.7;">blog.</text>
+            </g>
+        </g>
+    </g>
+</svg>
