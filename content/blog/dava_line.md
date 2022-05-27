@@ -3,6 +3,7 @@ title = "Dava Line: Recreating one of Britain's lost railways"
 date = 2022-03-18
 [extra]
 image = "/images/posts/dava_line_forres_01.jpg"
+background_image = "/images/posts/dava_line_forres_01.jpg"
 +++
 
 Built to connect Inverness to the south, the Dava Line served as the main route south until 1892 when the current Highland Mainline was built via Carrbridge. From Aviemore in the south the route passes through the wide and gentle Strathspey with glorious views of the Cairngorm mountains on the right until arriving at Grantown-on-Spey. From here the hard graft begins as the line climbs to the Dava summit, some 1046 ft high. 

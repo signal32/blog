@@ -1,0 +1,29 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "[![GH Pages](https://github.com/signal32/blog/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/signal32/blog/actions/workflows/main.yml)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "cpy ./style.css ./public/styles && concurrently \"npx tailwindcss -i ./themes/hame/styles/styles.css -o ./public/styles/style.css --watch\" \"zola-bin serve\"",
+    "build": "npx tailwindcss -i ./themes/hame/styles/styles.css -o ./public/styles/style.css && zola-bin serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/signal32/blog.git"
+  },
+  "author": "Hamish Weir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/signal32/blog/issues"
+  },
+  "homepage": "https://github.com/signal32/blog#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "cpy-cli": "^4.1.0",
+    "zola-bin": "^0.3.3"
+  }
+}

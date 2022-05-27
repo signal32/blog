@@ -3,6 +3,7 @@ title = "Custom vector maps with OpenMapTiles and TileServer-GL"
 date = 2022-02-01
 [extra]
 image = "/images/posts/map_screenshot.png"
+background_image = "/images/posts/map_screenshot.png"
 +++
 
 In this post we're going to setup and display our own vector maps with custom styling using free, open source software. 
