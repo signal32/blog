@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "cpy ./style.css ./public/styles && concurrently \"npx tailwindcss -i ./themes/hame/styles/styles.css -o ./public/styles/style.css --watch\" \"zola-bin serve\"",
-    "build": "cpy ./style.css ./static/styles && zola-bin build && npx tailwindcss -i ./themes/hame/styles/styles.css -o ./public/styles/style.css && del-cli ./static/styles/style.css"
+    "build": "npx tailwindcss -i ./themes/hame/styles/styles.css -o ./static/styles/style.css && zola-bin build && del-cli ./static/styles/style.css"
   },
   "repository": {
     "type": "git",
