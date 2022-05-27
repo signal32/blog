@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hamish Weir: Blog | Custom vector maps with OpenMapTiles and TileServer-GL</title>
+    
+    <link rel="stylesheet" href="https://www.hamishweir.uk/styles/style.css?h=afb54cf094cdec71b909815b76b9ba004ec2872a43d882cfe8cfef0149bd0b34">
+    
+</head>
+
+<body class=" dark:bg-gray-900 bg-gray-300 bg-repeat flex flex-col h-screen">
+
+    
+    
+    
+    
+    <div class="absolute opacity-30 backdrop-blur w-full h-2/3 -z-50 overflow-hidden bg-center bg-cover" style="background-image: url('&#x2F;images&#x2F;posts&#x2F;map_screenshot.png')"></div>
+    <div class="absolute  bg-gradient-to-b from-transparent dark:to-gray-900 to-gray-300 w-full h-2/3 -z-50 overflow-hidden backdrop-blur"></div>
+    
+
+    <header class="mb-5 top-0 sticky bg-gradient-to-t from-transparent dark:to-gray-900 to-gray-300">
+        <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 rounded-lg shadow-lg bg-ocean">
+            <div class="flex flex-wrap gap-2 justify-center items-center">
+                <div class="flex-auto basis-full sm:basis-1/8 max-w-xs p-2">
+                    <img class="hidden dark:block h-12" src="https://www.hamishweir.uk/images/branding/dark.svg" alt="Hamish Weir: Blog"/>
+                    <img class="dark:hidden h-12" src="https://www.hamishweir.uk/images/branding/dark.svg" alt="Hamish Weir: Blog"/>
+                </div>
+
+                
+                <div class="flex-auto basis-3/4 sm:basis-auto">
+                    <div class="flex grow flex-wrap justify-center sm:justify-end py-0">
+                        
+        
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;>
+                                Home
+                            </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;showcase&#x2F;>
+                                Showcase
+                            </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;contact&#x2F;>
+                                Contact
+                            </a>
+                        </div>
+                        
+    
+                    </div>
+                </div>
+                
+
+                
+                <div class=" flex-none sm:basis-auto">
+                    <div class="flex flex-wrap justify-center sm:justify-end">
+
+                        
+                        <div class="flex">
+                            <a href="https:&#x2F;&#x2F;github.com&#x2F;signal32&#x2F;">
+                            <svg class=" hover:fill-white fill-slate-300 w-8 h-8 px-2 transition-all">
+                                <use xlink:href="/icons/bootstrap-icons.svg#github"/>
+                            </svg>
+                        </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a href="https:&#x2F;&#x2F;www.instagram.com&#x2F;hamishweirphoto&#x2F;">
+                            <svg class=" hover:fill-white fill-slate-300 w-8 h-8 px-2 transition-all">
+                                <use xlink:href="/icons/bootstrap-icons.svg#instagram"/>
+                            </svg>
+                        </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </header>
+
+    <main class="p-2 max-w-4xl mx-auto flex-grow">
+        <!-- Notifications/global messages -->
+        
+
+        <!-- Main content container -->
+        
+<main class="flex flex-wrap gap-2">
+    
+    <div class="flex-auto grow  basis-full ">
+        
+        <img class="object-cover w-full max-h-64 overflow-auto rounded-xl mb-4 mx-auto shadow-lg"src="&#x2F;images&#x2F;posts&#x2F;map_screenshot.png"/>
+        
+    
+        
+    
+        <div class="mb-4 p-3 mx-auto dark:bg-gray-900 bg-gray-300 bg-opacity-75 rounded-xl">
+            
+            <h1 class=" dark:text-gray-100 text-gray-800 text-2xl">Custom vector maps with OpenMapTiles and TileServer-GL</h1>
+    
+            
+            <p class="dark:text-gray-300 text-gray-600 text-lg">1 February, 2022</p>
+            
+    
+            <div class="text-slate-200 hame-markdown">
+                <p>In this post we're going to setup and display our own vector maps with custom styling using free, open source software. 
+This solution is ideal for experimentation and prototyping but may not scale well in production.
+For simplicity we won't integrate this into any framework, but the fundamentals here will be applicable to most frameworks.</p>
+<p>As always, the full code is available on <a href="https://github.com/signal32">GitHub</a>.</p>
+<h2 id="building-tiles">Building Tiles</h2>
+<p>First we need to source our data and process it into tiles that can be served efficiently.
+<a href="https://openmaptiles.org/">OpenMapTiles</a> provides both an open source schema for these tiles and tools to build them from OSM data. I ran into difficulties running it on Windows, however on Ubuntu the process was quite straightforward.</p>
+<p>Start by cloning OpenMapTiles:</p>
+<pre data-lang="sh" style="background-color:#2e3440;color:#d8dee9;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#88c0d0;">$</span><span> git clone https://github.com/openmaptiles/openmaptiles.git
+</span></code></pre>
+<p>Open <code>.env</code> and look for the zoom parameters below. For this demo I will increase the <code>MAX_ZOOM</code> to 14, so more detail can be seen when styling the maps later. This will generate files of exponentially larger size so you may wish to use the default setting first before applying this step.</p>
+<pre data-lang="py" style="background-color:#2e3440;color:#d8dee9;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#616e88;"># Which zooms to generate with make generate-tiles-pg
+</span><span style="color:#81a1c1;">MIN_ZOOM=</span><span style="color:#b48ead;">0
+</span><span style="color:#81a1c1;">MAX_ZOOM=</span><span style="color:#b48ead;">14
+</span></code></pre>
+<p>Now we can use the convenient <code>quickstart</code> utility to download and build our tiles to <code>data/tiles.mbtiles</code>.</p>
+<pre data-lang="sh" style="background-color:#2e3440;color:#d8dee9;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#88c0d0;">$</span><span> ./quickstart.sh scotland
+</span></code></pre>
+<p>This will take some time, especially if your zoom level is hight, so be patient and go grab a coffee. ☕</p>
+<h2 id="serving-tiles">Serving Tiles</h2>
+<p>Next, we're going to serve these tiles to our web clients using <a href="https://github.com/maptiler/tileserver-gl">TileServer-GL</a> from 
+<a href="https://www.mapbox.com/">MapBox</a> who produce many mapping tool that are arguably easier to setup, however these are generally closed source, cloud based or require a license to use.</p>
+<p>We're going to be using Docker to simplify the next few stages so go ahead and create a <code>docker-compose.yml</code> file in your project source directory.</p>
+<pre data-lang="yaml" style="background-color:#2e3440;color:#d8dee9;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#616e88;"># docker-compose.yml
+</span><span style="color:#8fbcbb;">version</span><span style="color:#eceff4;">: </span><span style="color:#a3be8c;">&#39;3&#39;
+</span><span style="color:#8fbcbb;">services</span><span style="color:#eceff4;">:
+</span><span>  </span><span style="color:#8fbcbb;">tileServer</span><span style="color:#eceff4;">:
+</span><span>    </span><span style="color:#8fbcbb;">image</span><span style="color:#eceff4;">: </span><span style="color:#a3be8c;">maptiler/tileserver-gl:${TILESERVER_VERSION:-latest}
+</span><span>    </span><span style="color:#8fbcbb;">restart</span><span style="color:#eceff4;">: </span><span style="color:#a3be8c;">on-failure
+</span><span>    </span><span style="color:#8fbcbb;">command</span><span style="color:#eceff4;">: 
+</span><span>        </span><span style="color:#a3be8c;">--verbose 
+</span><span>        </span><span style="color:#a3be8c;">--config /config/tileserver/tileserver.json 
+</span><span>        </span><span style="color:#a3be8c;">--mbtiles /tile_data/tiles/tiles.mbtiles 
+</span><span>        </span><span style="color:#a3be8c;">--port 8090
+</span><span>    </span><span style="color:#8fbcbb;">volumes</span><span style="color:#eceff4;">:
+</span><span>      - </span><span style="color:#a3be8c;">./config:/config
+</span><span>      - </span><span style="color:#a3be8c;">${TILESERVER_TILE_DIR:-./data/tileserver}:/tile_data
+</span><span>    </span><span style="color:#8fbcbb;">ports</span><span style="color:#eceff4;">:
+</span><span>      - </span><span style="color:#a3be8c;">&quot;${TILESERVER_PORT:-8080}:8080&quot;
+</span></code></pre>
+<p>I like to keep configuration variables in an adjacent <code>.env</code> file like so.</p>
+<pre data-lang="py" style="background-color:#2e3440;color:#d8dee9;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#616e88;"># .env
+</span><span style="color:#81a1c1;">TILESERVER_VERSION=</span><span>latest
+</span><span style="color:#81a1c1;">TILESERVER_TILE_DIR=</span><span>.</span><span style="color:#81a1c1;">/</span><span>tiles
+</span><span style="color:#81a1c1;">TILESERVER_PORT=</span><span style="color:#b48ead;">8080
+</span></code></pre>
+<h2 id="displaying-tiles">Displaying Tiles</h2>
+<p>For this we'll use <a href="https://github.com/maplibre/maplibre-gl-js">MapLibre-GL-JS</a> an open source fork of Mapbox GL JS.
+Rather than fuss about setting up a web framework we'll keep things concise by linking it into a plain old html file from a CDN.</p>
+<pre data-lang="html" style="background-color:#2e3440;color:#d8dee9;" class="language-html "><code class="language-html" data-lang="html"><span style="color:#eceff4;">   </span><span style="color:#81a1c1;">&lt;script </span><span style="color:#8fbcbb;">src</span><span style="color:#eceff4;">=</span><span style="color:#a3be8c;">&quot;https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.js&quot;</span><span style="color:#81a1c1;">&gt;&lt;/script&gt;
+</span><span style="color:#eceff4;">   </span><span style="color:#81a1c1;">&lt;link </span><span style="color:#8fbcbb;">href</span><span style="color:#eceff4;">=</span><span style="color:#a3be8c;">&quot;https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css&quot; </span><span style="color:#8fbcbb;">rel</span><span style="color:#eceff4;">=</span><span style="color:#a3be8c;">&quot;stylesheet&quot;</span><span style="color:#81a1c1;">/&gt;
+</span></code></pre>
+<p><strong>Note:</strong> I'm working on finishing this post soon while using it as an example to assist styling the website in general.</p>
+<h2 id="creating-a-custom-theme">Creating a Custom Theme</h2>
+<h2 id="conclusion">Conclusion</h2>
+<p>I used this approach to display maps in <a href="https://explore.hamishweir.uk/">Exlorer</a> (working title).</p>
+
+            </div>
+    
+        </div>
+    </div>
+
+    
+    
+
+</main>
+
+
+    </main>
+
+    <footer class="align-bottom dark:text-gray-300 text-gray-700">
+        <div class="max-w-4xl mx-auto -z-20">
+            <div class=" px-2 sm:px-6 mb-2 rounded-lg shadow-lg dark:bg-gray-800 bg-gray-200">
+                <div class="mx-auto flex justify-between items-center">
+                    <div class="w-1/5">
+                        <img class="dark:invert py-2" src="https://www.hamishweir.uk/images/logo.svg" alt="Hamish Weir: Blog"/>
+                       
+                    </div>
+                    <div class="w-1/5 hame-markdown">
+                        <p class=" dark:text-gray-300 text-gray-600 text-xs italic">Copyright&#169; Hamish Weir 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="relative -top-3 pt-0 mt-0 left-0 right-0 max-w-4xl sm:px-6 mb-2 rounded-b-lg shadow-lg bg-ocean mx-auto">
+
+                <div class="py-3 mx-auto flex justify-start items-center gap-2">
+                    <div class="flex-none basis-1/5 dark:bg-gray-800 bg-gray-200 p-1 rounded-lg text-center shadow-lg">
+                        <h1 class="text-sm">  My other websites  </h1>
+                    </div>
+
+                    
+                    <div class="flex text-sm text-gray-300 hover:text-gray-50 hover:underline text-center">
+                        <a href="http:&#x2F;&#x2F;rails.hamishweir.uk">Rails Developments</a>
+                    </div>
+                    <div class="flex text-sm text-gray-300 text-center">
+                        <p>|</p>
+                    </div>
+                    
+                </div>    
+        </div>
+        
+
+    </footer>
+
+</body>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.hamishweir.uk/</loc>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/</loc>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/dava-line/</loc>
+        <lastmod>2022-03-18</lastmod>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/letsmeet/</loc>
+        <lastmod>2022-03-17</lastmod>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/markdown/</loc>
+        <lastmod>2021-07-30</lastmod>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/blog/vector-maps-with-opentiles/</loc>
+        <lastmod>2022-02-01</lastmod>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/contact/</loc>
+    </url>
+    <url>
+        <loc>https://www.hamishweir.uk/showcase/</loc>
+    </url>
+</urlset>
