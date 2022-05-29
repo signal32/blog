@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hamish Weir: Blog | Explorer - An Open Geospatial Data Browser</title>
+    
+    <link rel="stylesheet" href="https://www.hamishweir.uk/styles/style.css?h=c4562939670625fde5364fa433cf8c0cb53de2e5b91897bad43ffead28dd5b21">
+    
+</head>
+
+<body class=" dark:bg-gray-900 bg-gray-300 bg-repeat flex flex-col h-screen">
+    <script>0</script>
+
+    
+    
+    
+    
+    <div class="absolute opacity-30 backdrop-blur w-full h-2/3 -z-50 overflow-hidden bg-center bg-cover" style="background-image: url('&#x2F;images&#x2F;posts&#x2F;explorer_app_demo.jpg')"></div>
+    <div class="absolute  bg-gradient-to-b from-transparent dark:to-gray-900 to-gray-300 w-full h-2/3 -z-50 overflow-hidden backdrop-blur"></div>
+    
+
+    <header class="mb-5 top-0 sticky bg-gradient-to-t from-transparent dark:to-gray-900 to-gray-300">
+        <div class="max-w-4xl mx-auto px-2 sm:px-6 mt-2 rounded-lg shadow-lg bg-ocean">
+            <div class="flex flex-wrap gap-2 justify-center items-center">
+                <div class="flex-auto basis-full sm:basis-1/8 max-w-xs p-2">
+                    <img class="hidden dark:block h-12" src="https://www.hamishweir.uk/images/branding/dark.svg" alt="Hamish Weir: Blog"/>
+                    <img class="dark:hidden h-12" src="https://www.hamishweir.uk/images/branding/dark.svg" alt="Hamish Weir: Blog"/>
+                </div>
+
+                
+                <div class="flex-auto basis-3/4 sm:basis-auto">
+                    <div class="flex grow flex-wrap justify-center sm:justify-end py-0">
+                        
+        
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;>
+                                Home
+                            </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;showcase&#x2F;>
+                                Showcase
+                            </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a class="p-1 mx-1 rounded border-2 border-transparent hover:border-air transition-all text-slate-300 "
+                            href=&#x2F;contact&#x2F;>
+                                Contact
+                            </a>
+                        </div>
+                        
+    
+                    </div>
+                </div>
+                
+
+                
+                <div class=" flex-none sm:basis-auto">
+                    <div class="flex flex-wrap justify-center sm:justify-end">
+
+                        
+                        <div class="flex">
+                            <a href="https:&#x2F;&#x2F;github.com&#x2F;signal32&#x2F;">
+                            <svg class=" hover:fill-white fill-slate-300 w-8 h-8 px-2 transition-all">
+                                <use xlink:href="/icons/bootstrap-icons.svg#github"/>
+                            </svg>
+                        </a>
+                        </div>
+                        
+                        <div class="flex">
+                            <a href="https:&#x2F;&#x2F;www.instagram.com&#x2F;hamishweirphoto&#x2F;">
+                            <svg class=" hover:fill-white fill-slate-300 w-8 h-8 px-2 transition-all">
+                                <use xlink:href="/icons/bootstrap-icons.svg#instagram"/>
+                            </svg>
+                        </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+    </header>
+
+    <main class="p-2 max-w-4xl mx-auto flex-grow">
+        <!-- Notifications/global messages -->
+        
+
+        <!-- Main content container -->
+        
+<main class="flex flex-wrap gap-2">
+    
+    <div class="flex-auto grow  basis-full ">
+        
+        <img class="object-cover w-full max-h-64 overflow-auto rounded-xl mb-4 mx-auto shadow-lg"src="&#x2F;images&#x2F;posts&#x2F;explorer_app_demo.jpg"/>
+        
+    
+        
+    
+        <div class="mb-4 p-3 mx-auto dark:bg-gray-900 bg-gray-300 bg-opacity-75 rounded-xl">
+            
+            <h1 class=" dark:text-gray-100 text-gray-800 text-2xl">Explorer - An Open Geospatial Data Browser</h1>
+    
+            
+            <p class="dark:text-gray-300 text-gray-600 text-lg">26 May, 2022</p>
+            
+    
+            <div class="text-slate-200 hame-markdown">
+                <p>As part of my computing science degree, I created a mobile application to improve access to geospatial information on WikiData. This post describes the problem, my solution, and the results of its implementation.
+<br><br>
+Try the application here: <a href="https://explore.hamishweir.uk">explore.hamishweir.uk</a>
+<br><br>
+<em><strong>Note:</strong> This post is extracted from, and references figures within, the poster shown below.</em></p>
+<h1 id="introduction">Introduction</h1>
+<p>The general public are unable to utilise Geospatial Open Data on WikiData due to a skill and knowledge gap. Explorer is a novel mobile application which aims to increase the general public accessibility of Geospatial Open Data. The application was designed to run on any mobile device within a web browser. It uses Semantic Web technologies to reason about data on WikiData, and uses this to provide discovery features. A user study finds that the application is useful and users enjoy discovering information from WikiData, although it is not always relevant to them. Some data accuracy issues with WikiData are also highlighted.</p>
+<h1 id="background">Background</h1>
+<p>Many organisations publish Open Geospatial Data which can be used freely by third parties to understand geographic features.  However, a lack of skills and knowledge restrict its use by the general public and incompatible storage formats prevent effective use by app developers [1].
+Semantic Web technologies reduce technological barriers to knowledge sharing by representing information within Knowledge Graphs which developers can query using standardised protocols [2].
+WikiData is a Knowledge Base of Open Data maintained by Wikimedia. It is widely regarded as a machine readable version of Wikipedia and has been growing steadily since its inception in 2012 (Fig 2). It contains geospatial information of over 9 million distinct places [3].
+Explorer aims to use WikiData to improve the intellectual accessibility of Open Geospatial Data to the general public. </p>
+<h2 id="objectives">Objectives</h2>
+<ol>
+<li>Improve the intellectual accessibility of Open Geospatial Data</li>
+<li>Evaluate WikiData for geospatial entity detail provision and recommendation</li>
+<li>Explore how Open Data applications can provide modularity and extensibility</li>
+<li>Promote open data and open source software development</li>
+</ol>
+<h1 id="implementation">Implementation</h1>
+<p>Web technologies enable seamless cross platform support, Explorer is built as a Progressive Web App using the latest Vue3 and Ionic frameworks. 
+An extensible architecture (Fig. 3) makes use of plugins to extend domain specific business logic of each feature. 
+Relevant recommendations (Fig. 5) are provided by analysing relationships in WikiData's Knowledge Graph.
+Context specific detailed information (Fig. 2) is sourced by plugins that understand the Knowledge Graph.
+Categorisation of places using WikiData allows rich category information such icons (A4) to be shown.
+Place Preferences (Fig. 1) use the Knowledge Graph structure to show places only of certain categories. Users can search from thousands of categories to suit their needs. Unwanted place types can be hidden (A3)</p>
+<h1 id="analysis">Analysis</h1>
+<h2 id="design">Design</h2>
+<p>An online survey and in-person focus group sessions evaluated the apps usability and utility with the target audience.
+18 respondents to the online survey provided quantitative data based on the System Usability Scale. A semi-structured interview with focus group members helped explain this data.</p>
+<h2 id="results">Results</h2>
+<p><img src="/images/posts/explorer/system_usability_scale.svg" alt="alt text" title="Logo Title" />
+<em>Figure 6: Response to usability questions</em></p>
+<p>The user study  showed positive sentiment towards the application (Figure 2).  One participant commented how they  &quot;hate going to new  places and not knowing where to explore [or] what to do&quot; and that the app &quot;takes the distraction away and focuses on actual activities&quot;.
+Users overwhelmingly agreed that the app was easy to use, commenting that they &quot;like how minimal it is&quot; while &quot;information [is] nicely presented geographically&quot;. Two thirds reported that would enjoy using the app frequently. </p>
+<p><img src="/images/posts/explorer/explorer_stats.svg" alt="alt text" title="Logo Title" /> 
+<em>Figure 7, 8: Showing time within app and overall user sentiment</em></p>
+<p>Users found the app useful. One user, explaining recommendations, said
+&quot;I go down the rabbit hole, [and think] oh this is cool, this is connected to this&quot;.</p>
+<h1 id="conclusion">Conclusion</h1>
+<ol>
+<li>Feedback from users positively confirms that Explorer improves intellectual accessibility of WikiData's geospatial data.</li>
+<li>The system provided utility to participants, indicated by their enjoyment and willingness to use it again. </li>
+<li>Extenisibility is achievable by using a plugin based architecture, which was practical and efficient.</li>
+<li>It is possible to build a Knowledge Base backed maps application for end users using only open-source data and technologies.</li>
+</ol>
+<h2 id="future-work">Future Work</h2>
+<ul>
+<li>Explore improved recommendations using Knowledge Graph embeddings</li>
+<li>Support user submitted plugins for custom functionality.</li>
+<li>Develop integrations with third party sources for additional detailed info</li>
+</ul>
+<h2 id="poster">Poster</h2>
+<p><img src="/images/posts/explorer/explorer_poster.png" alt="alt text" title="Logo Title" />
+Download poster as <a href="/documents/explorer_poster.pdf">PDF</a></p>
+
+            </div>
+    
+        </div>
+    </div>
+
+    
+    
+
+</main>
+
+
+    </main>
+
+    <footer class="align-bottom dark:text-gray-300 text-gray-700">
+        <div class="max-w-4xl mx-auto -z-20">
+            <div class=" px-2 sm:px-6 mb-2 rounded-lg shadow-lg dark:bg-gray-800 bg-gray-200">
+                <div class="mx-auto flex justify-between items-center">
+                    <div class="w-1/5">
+                        <img class="dark:invert py-2" src="https://www.hamishweir.uk/images/logo.svg" alt="Hamish Weir: Blog"/>
+                       
+                    </div>
+                    <div class="w-1/5 hame-markdown">
+                        <p class=" dark:text-gray-300 text-gray-600 text-xs italic">Copyright&#169; Hamish Weir 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="relative -top-3 pt-0 mt-0 left-0 right-0 max-w-4xl sm:px-6 mb-2 rounded-b-lg shadow-lg bg-ocean mx-auto">
+
+                <div class="py-3 mx-auto flex justify-start items-center gap-2">
+                    <div class="flex-none basis-1/5 dark:bg-gray-800 bg-gray-200 p-1 rounded-lg text-center shadow-lg">
+                        <h1 class="text-sm">  My other websites  </h1>
+                    </div>
+
+                    
+                    <div class="flex text-sm text-gray-300 hover:text-gray-50 hover:underline text-center">
+                        <a href="http:&#x2F;&#x2F;rails.hamishweir.uk">Rails Developments</a>
+                    </div>
+                    <div class="flex text-sm text-gray-300 text-center">
+                        <p>|</p>
+                    </div>
+                    
+                </div>    
+        </div>
+        
+
+    </footer>
+
+</body>
