@@ -9,6 +9,8 @@ background_image = "/images/posts/explorer_app_demo.jpg"
 As part of my computing science degree, I created a mobile application to improve access to geospatial information on WikiData. This post describes the problem, my solution, and the results of its implementation.
 <br><br>
 Try the application here: [explore.hamishweir.uk](https://explore.hamishweir.uk)
+
+Source code available on [GitHub](https://github.com/signal32/explorer).
 <br><br>
 ***Note:** This post is extracted from, and references figures within, the poster shown below.*
 

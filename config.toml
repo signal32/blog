@@ -36,4 +36,5 @@ posts_per_page = 10
 other_sites_label = "My other websites"
 other_sites_list = [
     {title = "Rails Developments", href = "http://rails.hamishweir.uk"},
+    {title = "WikiData Explorer", href = "https://explore.hamishweir.uk"},
 ]
