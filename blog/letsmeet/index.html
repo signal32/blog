@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hamish Weir: Blog | Let&#x27;s Meet: a collaborative meeting scheduler</title>
     
-    <link rel="stylesheet" href="https://www.hamishweir.uk/styles/style.css?h=bedda5bca4763618bb18dee7ce0ea4b21b80412a019cdd585d3ef77570b4fb7e">
+    <link rel="stylesheet" href="https://www.hamishweir.uk/styles/style.css?h=384bda453762d8b376fe650c78f2813ef47a760f312225fa208ee2c9879f0371">
     
 </head>
 
@@ -17,7 +17,7 @@
     
     
     
-    <div class="absolute opacity-30 backdrop-blur w-full h-2/3 -z-50 overflow-hidden bg-center bg-cover" style="background-image: url('&#x2F;images&#x2F;posts&#x2F;letsmeet_logo.svg')"></div>
+    <div class="absolute opacity-30 backdrop-blur w-full h-2/3 -z-50 overflow-hidden bg-center bg-cover" style="background-image: url('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;background.png')"></div>
     <div class="absolute  bg-gradient-to-b from-transparent dark:to-gray-900 to-gray-300 w-full h-2/3 -z-50 overflow-hidden backdrop-blur"></div>
     
 
@@ -117,8 +117,70 @@
             
     
             <div class="text-slate-200 hame-markdown">
-                <p>Last year I spent a significant amount of time developing Let's Meet, a self proclaimed &quot;collaborative meeting organiser&quot; as part of a university assessment. </p>
-<h2 id="conclusion">Conclusion</h2>
+                <p>Last year I developing Let's Meet, a &quot;collaborative meeting organiser&quot;, with a group of fellow students as part of a university assessment. 
+The source code is available <a href="https://github.com/faizan-mohiuddin/LetsMeet">here</a>.</p>
+<h2 id="screenshots">Screenshots</h2>
+<div id="gallery" class="hame-markdown">
+
+    <div class="flex flex-wrap gap-2 justify-center">
+
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;home.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;56da92eb5a1d219800.png">
+        </div>
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;dashboard_en.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;405f53882b3c98f700.png">
+        </div>
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;dashboard_ru.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;19b2824fa9c716ee00.png">
+        </div>
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;new_meet.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;98659d653f20118700.png">
+        </div>
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;account.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;cf43d4324a6f0f3800.png">
+        </div>
+        
+        
+        <div class=" basis-64  hover:scale-105 transition-all" onclick="showImage('&#x2F;images&#x2F;posts&#x2F;letsmeet&#x2F;email2.png')">
+            <img src="https:&#x2F;&#x2F;www.hamishweir.uk&#x2F;processed_images&#x2F;7bb41c6a3777555e00.png">
+        </div>
+        
+
+    </div>
+
+    <div id="fullsize_container" class="absolute w-full h-full top-0 left-0 z-10 bg-black bg-opacity-75" hidden onclick="hideImage()">
+        <div class="relative p-4 sm:p-12 w-full m-auto flex justify-center">
+            <div>
+                <button class="text-white dark:text-white hover:underline" onclick="hideImage()">Close</button>
+                <img class=" max-h-[80vh]" src="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showImage(url) {
+        const element = document.getElementById('fullsize_container');
+        const img = element.querySelector('img');
+
+        element.hidden = false;
+        img.setAttribute('src', url);
+    }
+
+    function hideImage() {
+        document.getElementById('fullsize_container').hidden = true;
+    }
+</script><h2 id="demonstration">Demonstration</h2>
 <p>To finish things off we made a short introduction video to sell the product.
 <div class="w-full">
     <iframe src="https://www.youtube-nocookie.com/embed/dVIA8e39oGY" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -147,7 +209,7 @@
                        
                     </div>
                     <div class="w-1/5 hame-markdown">
-                        <p class=" dark:text-gray-300 text-gray-600 text-xs italic">Copyright&#169; Hamish Weir 2022</p>
+                        <p class=" dark:text-gray-300 text-gray-600 text-xs italic">Copyright &#169; Hamish Weir 2022</p>
                     </div>
                 </div>
             </div>
