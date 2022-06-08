@@ -14,6 +14,6 @@ background_image = "/images/misc/background.jpg"
         <p>I'm Hamish, programmer, photographer, and general technology nerd from Scotland.
         Here you can find things I have created, discovered or otherwise found interesting.</p>
         <br>
-        <p>If you like pretty photos, I have a <a href="https://photos.hamishweir.uk">site</a> for that too!</p>
+        <!-- <p>If you like pretty photos, I have a <a href="https://photos.hamishweir.uk">site</a> for that too!</p> -->
     </div>
 </div>
